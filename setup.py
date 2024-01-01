@@ -15,7 +15,7 @@ def def_requirements():
 def def_readme():
     """Check Readme Markdown"""
     readme = ""
-    with open('Readme.md', encoding="utf-8") as file_content:
+    with open('Readme.rst', encoding="utf-8") as file_content:
         readme = file_content.read()
     return readme
 
