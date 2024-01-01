@@ -242,6 +242,8 @@ fabric.properties
 
 # Cache
 __pycache__
+__pycache__/
+__pycache__/*
 
 # PyCharm
 .idea/*
