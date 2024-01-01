@@ -395,6 +395,12 @@ def download(url: str) -> Optional[str]:
 
 async def run_download(url: str) -> None:
     result = await download(url)
-    result = result.replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue') \
-    .replace('Ä', 'Ae').replace('Ö', 'Oe').replace('Ü', 'Ue')
-    return result.replace("ß","ss")
+    result = (
+        result.replace("ä", "ae")
+        .replace("ö", "oe")
+        .replace("ü", "ue")
+        .replace("Ä", "Ae")
+        .replace("Ö", "Oe")
+        .replace("Ü", "Ue")
+    )
+    return result.replace("ß", "ss")

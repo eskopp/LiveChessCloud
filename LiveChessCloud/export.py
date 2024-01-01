@@ -1,6 +1,6 @@
 # export.py
 from colorama import Fore, init
-from . import download 
+from . import download
 import asyncio
 
 # Initialize Colorama to support colors on the console
@@ -16,10 +16,10 @@ def export(url: str, file: str) -> None:
     print(f"{yellow_color}PGN file name:{Fore.RESET} {file}")
 
     content = asyncio.run(download.run_download(url))
-    
+
     try:
-        with open(file, 'w+') as file:
+        with open(file, "w+") as file:
             file.write(content)
-        print(f'Content successfully written to the file {file}.')
+        print(f"Content successfully written to the file {file}.")
     except Exception as e:
-        print(f'Error writing to the file {file}: {str(e)}')
+        print(f"Error writing to the file {file}: {str(e)}")

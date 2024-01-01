@@ -4,7 +4,7 @@ import sys
 import re
 from colorama import init, Fore
 from . import help
-from . import download 
+from . import download
 from . import export
 from pkg_resources import get_distribution
 import asyncio
@@ -49,7 +49,7 @@ def main() -> None:
                 )
                 sys.exit(1)
             print(asyncio.run(download.run_download(url)))
-            
+
         elif action == "export":
             # Check for the presence of a valid URL in the second argument
             if not re.match(r"https://view\.livechesscloud\.com/#\w+", url):
