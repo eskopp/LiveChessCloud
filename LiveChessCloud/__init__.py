@@ -1,1 +1,2 @@
-print("Hello World")
+def main() -> None:
+    print("Hallo Welt")
