@@ -41,7 +41,8 @@ def main() -> None:
 
         # Check which action was specified
         if action == "download":
-            if not re.match(r"https://view.livechesscloud.com/#\w+", url):
+            if not re.match(r"https://view\.livechesscloud\.com/#\w+", url):
+
                 print(
                     f"{Fore.RED}Error: Invalid URL format for export. Please provide a valid URL."
                 )
@@ -50,7 +51,8 @@ def main() -> None:
             download.download(url)
         elif action == "export":
             # Check for the presence of a valid URL in the second argument
-            if not re.match(r"https://view.livechesscloud.com/#\w+", url):
+            if not re.match(r"https://view\.livechesscloud\.com/#\w+", url):
+
                 print(
                     f"{Fore.RED}Error: Invalid URL format for export. Please provide a valid URL."
                 )
