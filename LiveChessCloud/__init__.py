@@ -6,16 +6,25 @@ from colorama import init, Fore
 from . import help
 from . import download
 from . import export
+from pkg_resources import get_distribution
+
+# Import version from setup.py
+__version__ = get_distribution('LiveChessCloud').version
 
 # Initialize Colorama to support colors on the console
 init(autoreset=True)
 
-
 def main() -> None:
-    # Check if 'help' is the only argument
-    if len(sys.argv) == 2 and sys.argv[1] == "help":
-        # Call the help function if only 'help' is provided as an argument
-        help.help()
+    # Check if 'help' or '--version' is the only argument
+    if len(sys.argv) == 2:
+        if sys.argv[1] == "help":
+            # Call the help function if only 'help' is provided as an argument
+            help.help()
+        elif sys.argv[1] in ("-v", "--version"):
+            print( f"LiveChessCloud {__version__}")
+        else:
+            print(f"{Fore.RED}Unknown option: {sys.argv[1]}")
+            sys.exit(1)
     else:
         # Check if an adequate number of arguments are provided for other actions
         if len(sys.argv) < 3:
@@ -31,15 +40,13 @@ def main() -> None:
             pgn = sys.argv[3]
 
         # Check which action was specified
-        if action == "download":  #
+        if action == "download":
             if not re.match(r"https://view.livechesscloud.com/#\w+", url):
                 print(
                     f"{Fore.RED}Error: Invalid URL format for export. Please provide a valid URL."
                 )
                 sys.exit(1)
             # Insert logic for download here
-            # No other output
-            # print(f"{Fore.GREEN}Downloading is in progress for URL: {url}")
             download.download(url)
         elif action == "export":
             # Check for the presence of a valid URL in the second argument
@@ -55,7 +62,3 @@ def main() -> None:
             print(
                 f"{Fore.RED}Error: Invalid action. Use '{Fore.CYAN}help{Fore.RED}' for assistance."
             )
-
-
-if __name__ == "__main__":
-    main()
