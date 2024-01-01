@@ -1,5 +1,4 @@
 import setuptools
-import os
 
 def def_requirements():
     """Check PIP Requirements"""
@@ -12,21 +11,13 @@ def def_requirements():
     return pip_lines
 
 
-def def_readme():
-    """Check Readme Markdown"""
-    readme = ""
-    with open('README.md', encoding="utf-8") as file_content:
-        readme = file_content.read()
-    return readme
-
-
 
 setuptools.setup(
     name="LiveChessCloud",
     version="0.0.3",
     author="eskopp",
     description="PGN Downloader for LiveChessCloud",
-    long_description=def_readme(),
+    long_description="README.md",
     long_description_content_type="text/markdown",
     license="GPLv3",
     url="https://github.com/eskopp/LiveChessCloud",
