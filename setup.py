@@ -1,11 +1,11 @@
 import setuptools
-
+import os.path.join as join
 
 def def_requirements():
     """Check PIP Requirements"""
     pip_lines = ""
     try:
-        with open("requirements.txt", encoding="utf-8") as file_content:
+        with open(join(current_directory, 'requirements.txt'), encoding="utf-8") as file_content:
             pip_lines = file_content.read().splitlines()
     except Exception as error:
         print(f"Execpiton: {error}")
@@ -15,7 +15,7 @@ def def_requirements():
 def def_readme():
     """Check Readme Markdown"""
     readme = ""
-    with open("README.md", encoding="utf-8") as file_content:
+    with open(join(current_directory, 'Readme.md'), encoding="utf-8") as file_content:
         readme = file_content.read()
     return readme
 
