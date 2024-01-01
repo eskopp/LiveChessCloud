@@ -4,15 +4,17 @@ import sys
 import re
 from colorama import init, Fore
 from . import help
-from . import download
+from . import download 
 from . import export
 from pkg_resources import get_distribution
+import asyncio
 
 # Import version from setup.py
-__version__ = get_distribution('LiveChessCloud').version
+__version__ = get_distribution("LiveChessCloud").version
 
 # Initialize Colorama to support colors on the console
 init(autoreset=True)
+
 
 def main() -> None:
     # Check if 'help' or '--version' is the only argument
@@ -21,7 +23,7 @@ def main() -> None:
             # Call the help function if only 'help' is provided as an argument
             help.help()
         elif sys.argv[1] in ("-v", "--version"):
-            print( f"LiveChessCloud {__version__}")
+            print(f"LiveChessCloud {__version__}")
         else:
             print(f"{Fore.RED}Unknown option: {sys.argv[1]}")
             sys.exit(1)
@@ -42,17 +44,15 @@ def main() -> None:
         # Check which action was specified
         if action == "download":
             if not re.match(r"https://view\.livechesscloud\.com/#\w+", url):
-
                 print(
                     f"{Fore.RED}Error: Invalid URL format for export. Please provide a valid URL."
                 )
                 sys.exit(1)
-            # Insert logic for download here
-            download.download(url)
+            print(asyncio.run(download.run_download(url)))
+            
         elif action == "export":
             # Check for the presence of a valid URL in the second argument
             if not re.match(r"https://view\.livechesscloud\.com/#\w+", url):
-
                 print(
                     f"{Fore.RED}Error: Invalid URL format for export. Please provide a valid URL."
                 )

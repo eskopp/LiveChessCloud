@@ -246,4 +246,7 @@ __pycache__
 # PyCharm
 .idea/*
 .idea
-*idea*
+*idea
+
+# PGN - Files
+*.pgn
