@@ -1,15 +1,15 @@
 import setuptools
 
+
 def def_requirements():
     """Check PIP Requirements"""
     pip_lines = ""
     try:
-        with open('requirements.txt', encoding="utf-8") as file_content:
+        with open("requirements.txt", encoding="utf-8") as file_content:
             pip_lines = file_content.read().splitlines()
     except Exception as error:
         print(f"Execpiton: {error}")
     return pip_lines
-
 
 
 setuptools.setup(
