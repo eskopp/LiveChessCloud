@@ -24,7 +24,6 @@ setuptools.setup(
     name="LiveChessCloud",
     version="0.0.1",
     author="eskopp",
-    author_email="skovpp.erik@gmail.com",
     description="PGN Downloader for LiveChessCloud",
     long_description=def_readme(),
     long_description_content_type="text/markdown",
@@ -40,4 +39,9 @@ setuptools.setup(
     ],
     python_requires=">=3.10",
     install_requires=def_requirements(),
+        entry_points={
+        'console_scripts': [
+            'LiveChessCloud = LiveChessCloud.__init__:main',
+        ],
+    },
 )
