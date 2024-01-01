@@ -7,7 +7,7 @@
 pip install git+https://github.com/eskopp/LiveChessCloud.git
 ```
 
-## Install with Pypi
+## Install with pypi
 ```bash
 pip install LiveChessCloud
 ```
@@ -15,4 +15,24 @@ pip install LiveChessCloud
 ## Update
 ```bash
 pip install --upgrade LiveChessCloud
+```
+
+# Usage
+
+## Download PGN
+
+```bash
+ LiveChessCloud download <LIVECHESSCLOUD-URL>
+```
+
+## Export PGN
+
+```bash
+ LiveChessCloud export <LIVECHESSCLOUD-URL> <PGN-File.pgn>
+```
+
+## Version
+
+```bash
+LiveChessCloud --version
 ```
