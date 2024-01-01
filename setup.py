@@ -15,7 +15,7 @@ def def_requirements():
 def def_readme():
     """Check Readme Markdown"""
     readme = ""
-    with open("README.md", encoding="utf-8") as file_content:
+    with open("Readme.md", encoding="utf-8") as file_content:
         readme = file_content.read()
     return readme
 
@@ -39,9 +39,9 @@ setuptools.setup(
     ],
     python_requires=">=3.10",
     install_requires=def_requirements(),
-        entry_points={
-        'console_scripts': [
-            'LiveChessCloud = LiveChessCloud.__init__:main',
+    entry_points={
+        "console_scripts": [
+            "LiveChessCloud = LiveChessCloud.__init__:main",
         ],
     },
 )
