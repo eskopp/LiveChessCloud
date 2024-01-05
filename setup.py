@@ -14,7 +14,7 @@ def def_requirements():
 
 setuptools.setup(
     name="LiveChessCloud",
-    version="0.0.4",
+    version="0.0.5",
     author="eskopp",
     description="PGN Downloader for LiveChessCloud",
     long_description="README.md",
