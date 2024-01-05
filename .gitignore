@@ -252,3 +252,11 @@ __pycache__/*
 
 # PGN - Files
 *.pgn
+
+# Schrott
+*egg*
+LiveChessCloud.egg-info
+dist
+dist/*
+build
+build/*
