@@ -16,9 +16,7 @@ jobs:
       - name: Set up latest Python
         uses: actions/setup-python@v4
         with:
-          python-version: 'latest'
-          check-latest: true  
-          cache: 'pip'
+          python-version: '3.x'
 
       - name: Upgrade pip
         run: |
