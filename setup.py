@@ -9,9 +9,10 @@ def def_requirements() -> str:
     try:
         with open("requirements.txt", encoding="utf-8") as file_content:
             pip_lines = file_content.read().splitlines()
+            print(f"{pip_lines}")
     except Exception as error:
         print(f"Execpiton: {error}")
-    return
+    return pip_lines
 
 
 def def_readme() -> str:
