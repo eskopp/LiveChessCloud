@@ -6,11 +6,8 @@ from colorama import init, Fore
 from . import help
 from . import download
 from . import export
-from pkg_resources import get_distribution
 import asyncio
 
-# Import version from setup.py
-__version__ = get_distribution("LiveChessCloud").version
 
 # Initialize Colorama to support colors on the console
 init(autoreset=True)
