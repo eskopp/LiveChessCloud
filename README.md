@@ -41,5 +41,5 @@ LiveChessCloud --version
 # Example
 ```bash
 pip install Livechesscloud
-Livechesscloud export https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1 BadKoenigshofen23.pgn
+LiveChesscloud export https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1 BadKoenigshofen23.pgn
 ```
