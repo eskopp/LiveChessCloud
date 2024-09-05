@@ -1,4 +1,5 @@
-name: Test Merge
+name: Python workflow
+
 on:
   pull_request:
     branches:
@@ -15,7 +16,7 @@ jobs:
       - name: Set up latest Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: 'latest'
           check-latest: true  
           cache: 'pip'
 
