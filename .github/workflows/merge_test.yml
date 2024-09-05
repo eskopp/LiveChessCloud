@@ -1,4 +1,4 @@
-name: Python workflow
+name: Test - Merge
 
 on:
   pull_request:
