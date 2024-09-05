@@ -12,7 +12,7 @@ def def_requirements() -> str:
             print(f"{pip_lines}")
     except Exception as error:
         print(f"Execpiton: {error}")
-    return pip_lines
+    return pip_lines 
 
 
 def def_readme() -> str:
@@ -30,7 +30,7 @@ def def_readme() -> str:
 
 setuptools.setup(
     name="LiveChessCloud",
-    version="0.0.6",
+    version="0.0.7",
     author="eskopp",
     description="PGN Downloader for LiveChessCloud",
     long_description=def_readme(),
