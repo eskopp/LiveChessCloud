@@ -23,7 +23,7 @@ def def_readme() -> str:
     """
     readmemd = ""
     try:
-        with open("Readme.md", encoding="utf-8") as file_content:
+        with open("README.md", encoding="utf-8") as file_content:
             readmemd = file_content.read()
     except FileNotFoundError:
         print("Error: Readme.md not found.")
