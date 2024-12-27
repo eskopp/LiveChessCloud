@@ -1,18 +1,20 @@
 import setuptools
 
 
-def def_requirements() -> str:
+def def_requirements() -> list[str]:
     """
     Check PIP Requirements
     """
-    pip_lines = ""
+    pip_lines = []
     try:
         with open("requirements.txt", encoding="utf-8") as file_content:
             pip_lines = file_content.read().splitlines()
-            print(f"{pip_lines}")
+            print(f"Successfully read requirements: {pip_lines}")
+    except FileNotFoundError:
+        print("Error: requirements.txt not found.")
     except Exception as error:
-        print(f"Execpiton: {error}")
-    return pip_lines 
+        print(f"Unexpected error: {error}")
+    return pip_lines
 
 
 def def_readme() -> str:
@@ -23,14 +25,16 @@ def def_readme() -> str:
     try:
         with open("Readme.md", encoding="utf-8") as file_content:
             readmemd = file_content.read()
+    except FileNotFoundError:
+        print("Error: Readme.md not found.")
     except Exception as error:
-        print(f"Execpiton: {error}")
+        print(f"Unexpected error: {error}")
     return readmemd
 
 
 setuptools.setup(
     name="LiveChessCloud",
-    version="0.0.7",
+    version="0.0.8",
     author="eskopp",
     description="PGN Downloader for LiveChessCloud",
     long_description=def_readme(),
@@ -42,7 +46,7 @@ setuptools.setup(
     include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GPLv3",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.10",
