@@ -18,4 +18,4 @@ def export(url: str, file: str) -> None:
         with open(file, "w+") as file:
             file.write(content)
     except Exception as e:
-        print(f"Error writing to the file {file}: {str(e)}")
+        print(f"Error writing to the file {file}: {str(e)}") 
