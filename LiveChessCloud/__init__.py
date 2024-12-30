@@ -14,32 +14,53 @@ init(autoreset=True)
 
 @click.group()
 def main() -> None:
+    """
+    LiveChessCloud CLI
+
+    A command-line interface for downloading and exporting chess games from LiveChessCloud.
+    """
     pass
 
 @main.command(name="help")
 def help_command() -> None:
-    help.help()
+    """
+    Display help information.
+    """
+    click.echo(f"{Fore.YELLOW}LiveChessCloud CLI Help{Fore.RESET}")
+    click.echo(f"\n{Fore.YELLOW}Usage:{Fore.RESET}")
+    click.echo(f"  LiveChessCloud <command> [arguments]")
+    click.echo(f"\n{Fore.YELLOW}Commands:{Fore.RESET}")
+    click.echo(f"  {Fore.CYAN}download{Fore.RESET} <url> - Download a chess game from the provided URL.")
+    click.echo(f"  {Fore.CYAN}export{Fore.RESET} <url> [pgn] - Export a chess game to a PGN file from the provided URL.")
+    click.echo(f"  {Fore.CYAN}help{Fore.RESET} - Display this help information.")
+    click.echo(f"\n{Fore.YELLOW}Examples:{Fore.RESET}")
+    click.echo(f"  LiveChessCloud download {Fore.CYAN}https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1{Fore.RESET}")
+    click.echo(f"  LiveChessCloud export {Fore.CYAN}https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1{Fore.RESET} {Fore.CYAN}output.pgn{Fore.RESET}")
+    click.echo(f"  LiveChessCloud help")
 
 @main.command()
 @click.argument('url')
 def download(url: str) -> None:
+    """
+    Download a chess game from the provided URL.
+    """
     if not re.match(r"https://view\.livechesscloud\.com/#\w+", url):
-        print(
-            f"{Fore.RED}Error: Invalid URL format for download. Please provide a valid URL."
-        )
+        click.echo(f"{Fore.RED}Error: Invalid URL format for download. Please provide a valid URL.{Fore.RESET}")
         sys.exit(1)
-    print(asyncio.run(download.run_download(url)))
+    click.echo(f"{Fore.GREEN}Downloading game from URL: {url}{Fore.RESET}")
+    click.echo(asyncio.run(download.run_download(url)))
 
 @main.command()
 @click.argument('url')
 @click.argument('pgn', default="LiveChessCloud.pgn")
 def export(url: str, pgn: str) -> None:
+    """
+    Export a chess game to a PGN file from the provided URL.
+    """
     if not re.match(r"https://view\.livechesscloud\.com/#\w+", url):
-        print(
-            f"{Fore.RED}Error: Invalid URL format for export. Please provide a valid URL."
-        )
+        click.echo(f"{Fore.RED}Error: Invalid URL format for export. Please provide a valid URL.{Fore.RESET}")
         sys.exit(1)
-    print(f"{Fore.GREEN}Exporting is in progress for URL: {url}")
+    click.echo(f"{Fore.GREEN}Exporting game from URL: {url} to file: {pgn}{Fore.RESET}")
     export_command(url, pgn)
 
 if __name__ == "__main__":
