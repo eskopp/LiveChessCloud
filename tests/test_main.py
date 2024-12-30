@@ -1,5 +1,4 @@
 import unittest
-import click
 from click.testing import CliRunner
 from LiveChessCloud.__init__ import main
 
@@ -28,18 +27,16 @@ class TestLiveChessCloud(unittest.TestCase):
         valid_url = "https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1"
         result = self.runner.invoke(main, ['download', valid_url])
         self.assertEqual(result.exit_code, 0)
-        self.assertIn("Downloading is in progress", result.output)
+        self.assertIn("Downloading game from URL:", result.output)
+        self.assertIn("Download successful!", result.output)
 
     def test_export_valid_url(self):
         # Replace with a valid URL for actual testing
         valid_url = "https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1"
         result = self.runner.invoke(main, ['export', valid_url, 'output.pgn'])
         self.assertEqual(result.exit_code, 0)
-        self.assertIn("Exporting is in progress", result.output)
+        self.assertIn("Exporting game from URL:", result.output)
+        self.assertIn("Export successful!", result.output)
 
-@click.command()
-def run_tests():
+if __name__ == "__main__":
     unittest.main()
-
-if __name__ == '__main__':
-    run_tests()
