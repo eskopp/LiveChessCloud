@@ -58,8 +58,10 @@ setuptools.setup(
         "click"
     ],
     entry_points={
-        "console_scripts": [
-            "LiveChessCloud = LiveChessCloud.__init__:main",
+        'console_scripts': [
+            'livechesscloud=LiveChessCloud.__init__:main',
+            'LiveChessCloud=LiveChessCloud.__init__:main',
+            'LIVECHESSCLOUD=LiveChessCloud.__init__:main'
         ],
     },
 )
