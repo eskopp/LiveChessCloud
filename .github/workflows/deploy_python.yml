@@ -27,6 +27,10 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Set output color scheme
+        run: |
+          echo -e "\e[1;34m"
+
       - name: File System
         run: |
           ls -aril

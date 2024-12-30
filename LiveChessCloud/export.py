@@ -1,16 +1,16 @@
 # export.py
-from colorama import init
-from colorama import Fore, Back, Style
+from colorama import init, Fore, Style
 from . import download
 import asyncio
 
+# Initialize colorama
+init(autoreset=True)
 
 def export(url: str, file: str) -> None:
     """
     Use the download function and write the output to the PGN file.
     """
-    init(autoreset=True)
-    print(f"{Fore.YELLOW}PGN file name:{Fore.RESET} {file}")
+    print(f"{Fore.YELLOW}{Style.BRIGHT}PGN file name:{Style.RESET_ALL} {file}")
 
     content = asyncio.run(download.run_download(url))
     # Content
@@ -18,4 +18,4 @@ def export(url: str, file: str) -> None:
         with open(file, "w+") as file:
             file.write(content)
     except Exception as e:
-        print(f"Error writing to the file {file}: {str(e)}") 
+        print(f"{Fore.RED}{Style.BRIGHT}Error writing to the file {file}:{Style.RESET_ALL} {str(e)}")
