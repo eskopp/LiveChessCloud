@@ -1,22 +1,6 @@
 import setuptools
 
 
-def def_requirements() -> list[str]:
-    """
-    Check PIP Requirements
-    """
-    pip_lines = []
-    try:
-        with open("requirements.txt", encoding="utf-8") as file_content:
-            pip_lines = file_content.read().splitlines()
-            print(f"Successfully read requirements: {pip_lines}")
-    except FileNotFoundError:
-        print("Error: requirements.txt not found.")
-    except Exception as error:
-        print(f"Unexpected error: {error}")
-    return pip_lines
-
-
 def def_readme() -> str:
     """
     Get Readme
@@ -34,14 +18,14 @@ def def_readme() -> str:
 
 setuptools.setup(
     name="LiveChessCloud",
-    version="0.0.8",
+    version="0.1.0",
     author="eskopp",
     description="PGN Downloader for LiveChessCloud",
     long_description=def_readme(),
     long_description_content_type="text/markdown",
     license="MIT",
     url="https://github.com/eskopp/LiveChessCloud",
-    packages=["LiveChessCloud"],
+    packages=setuptools.find_packages(),
     package_data={"LiveChessCloud": ["VERSION"]},
     include_package_data=True,
     classifiers=[
@@ -50,7 +34,15 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.10",
-    install_requires=def_requirements(),
+    install_requires=[
+        "colorama==0.4.4",
+        "click==8.0.1",
+        "requests==2.25.1",
+        "asyncio==3.4.3",
+        "chess==1.6.1",
+        "pytest==6.2.4",
+        "aiohttp==3.7.4",
+    ],
     entry_points={
         'console_scripts': [
             'livechesscloud=LiveChessCloud.__init__:main',
