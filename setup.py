@@ -37,11 +37,11 @@ setuptools.setup(
     install_requires=[
         "colorama==0.4.4",
         "click==8.0.1",
-        "requests==2.25.1",
+        "requests==2.32.2",
         "asyncio==3.4.3",
         "chess==1.6.1",
         "pytest==6.2.4",
-        "aiohttp==3.7.4",
+        "aiohttp==3.10.11",
     ],
     entry_points={
         'console_scripts': [
