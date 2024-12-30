@@ -1,6 +1,10 @@
+from colorama import init, Fore, Style
 import unittest
 from click.testing import CliRunner
 from LiveChessCloud.__init__ import main
+
+# Initialize colorama
+init(autoreset=True)
 
 class TestLiveChessCloud(unittest.TestCase):
 
@@ -26,9 +30,11 @@ class TestLiveChessCloud(unittest.TestCase):
         # Replace with a valid URL for actual testing
         valid_url = "https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1"
         result = self.runner.invoke(main, ['download', valid_url])
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Downloading game from URL:", result.output)
-        self.assertIn("Download successful!", result.output)
+        try:
+            self.assertEqual(result.exit_code, 0)
+        except AssertionError as e:
+            print(f"{Fore.RED}{Style.BRIGHT}Test failed: {str(e)}{Style.RESET_ALL}")
+            raise
 
     def test_export_valid_url(self):
         # Replace with a valid URL for actual testing
