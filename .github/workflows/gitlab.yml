@@ -1,0 +1,24 @@
+name: Mirror GitHub to GitLab
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync GitHub to GitLab
+        uses: eskopp/github-to-gitlab@v1
+        with:
+          git_username: "ZXNrb3Bw"
+          git_email: "c2tvcHAuZXJpa0BnbWFpbC5jb20="
+          gitlab_repo: "aHR0cHM6Ly9naXRsYWIuZXJpay1za29wcC5kZS9lc2tvcHAvbGl2ZWNoZXNzY2xvdWQuZ2l0"
+          gitlab_token: ${{ secrets.GITLAB }}
+          github_token: ${{ secrets.GH_TOKEN }}
+          base64: "true"
