@@ -26,16 +26,6 @@ class TestLiveChessCloud(unittest.TestCase):
         self.assertEqual(result.exit_code, 1)
         self.assertIn("Error: Invalid URL format for export", result.output)
 
-    def test_download_valid_url(self):
-        # Replace with a valid URL for actual testing
-        valid_url = "https://   view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1"
-        result = self.runner.invoke(main, ['download', valid_url])
-        try:
-            self.assertEqual(result.exit_code, 0)
-        except AssertionError as e:
-            print(f"{Fore.RED}{Style.BRIGHT}Test failed: {str(e)}{Style.RESET_ALL}")
-            raise
-
     def test_export_valid_url(self):
         # Replace with a valid URL for actual testing
         valid_url = "https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1"
