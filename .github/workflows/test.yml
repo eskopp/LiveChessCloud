@@ -28,6 +28,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install git+https://github.com/eskopp/LiveChessCloud.git
 
       - name: Run tests
         run: |
