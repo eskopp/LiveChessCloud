@@ -6,7 +6,7 @@ import click
 from colorama import init, Fore
 from . import help
 from . import download
-from . import export
+from .export import export as export_command
 import asyncio
 
 # Initialize Colorama to support colors on the console
@@ -40,7 +40,7 @@ def export(url: str, pgn: str) -> None:
         )
         sys.exit(1)
     print(f"{Fore.GREEN}Exporting is in progress for URL: {url}")
-    export.export(url, pgn)
+    export_command(url, pgn)
 
 if __name__ == "__main__":
     main()
