@@ -52,9 +52,9 @@ setuptools.setup(
     python_requires=">=3.10",
     # install_requires=def_requirements(),
     install_requires=[
-        "chess>=1.10.0",
-        "colorama>=0.4.6",
-        "aiohttp>=3.10.5"
+        "chess",
+        "colorama",
+        "aiohttp"
     ],
     entry_points={
         "console_scripts": [
