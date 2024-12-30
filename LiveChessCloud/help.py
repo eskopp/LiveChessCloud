@@ -1,7 +1,8 @@
 # help.py
+import click
 from colorama import Fore
 
-
+@click.command()
 def help() -> None:
     url_example = (
         "https://view.livechesscloud.com/#1eb49a34-ddb6-436a-b1bf-f4fc03c488d1"

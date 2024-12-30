@@ -54,7 +54,8 @@ setuptools.setup(
     install_requires=[
         "chess",
         "colorama",
-        "aiohttp"
+        "aiohttp",
+        "click"
     ],
     entry_points={
         "console_scripts": [
