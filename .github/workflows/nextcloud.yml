@@ -30,4 +30,4 @@ jobs:
 
       - name: Display ZIP Name
         run: |
-          echo "Generated ZIP Name: ${{ steps.upload.outputs.zip-name }}"
+          echo "Generated ZIP Name: ${{ steps.upload.outputs.zip-name }}" 
