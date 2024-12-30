@@ -34,7 +34,7 @@ def def_readme() -> str:
 
 setuptools.setup(
     name="LiveChessCloud",
-    version="0.0.8",
+    version="0.0.9",
     author="eskopp",
     description="PGN Downloader for LiveChessCloud",
     long_description=def_readme(),
