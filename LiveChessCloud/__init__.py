@@ -13,7 +13,7 @@ import asyncio
 init(autoreset=True)
 
 
-@click.group(case_sensitive=False)
+@click.group()
 def main() -> None:
     """
     LiveChessCloud CLI
@@ -23,7 +23,7 @@ def main() -> None:
     pass
 
 
-@main.command(name="help", case_sensitive=False)
+@main.command(name="help")
 def help_command() -> None:
     """
     Display help information.
@@ -49,7 +49,7 @@ def help_command() -> None:
     click.echo(f"  LiveChessCloud help")
 
 
-@main.command(case_sensitive=False)
+@main.command()
 @click.argument("url")
 def download(url: str) -> None:
     """
@@ -61,10 +61,15 @@ def download(url: str) -> None:
         )
         sys.exit(1)
     click.echo(f"{Fore.GREEN}Downloading game from URL: {url}{Fore.RESET}")
-    click.echo(asyncio.run(download.run_download(url)))
+    result = asyncio.run(download.run_download(url))
+    if result:
+        click.echo(f"{Fore.GREEN}Download successful!{Fore.RESET}")
+        click.echo(f"{Fore.CYAN}{result}{Fore.RESET}")
+    else:
+        click.echo(f"{Fore.RED}Download failed.{Fore.RESET}")
 
 
-@main.command(case_sensitive=False)
+@main.command()
 @click.argument("url")
 @click.argument("pgn", default="LiveChessCloud.pgn")
 def export(url: str, pgn: str) -> None:
@@ -77,8 +82,12 @@ def export(url: str, pgn: str) -> None:
         )
         sys.exit(1)
     click.echo(f"{Fore.GREEN}Exporting game from URL: {url} to file: {pgn}{Fore.RESET}")
-    export_command(url, pgn)
+    try:
+        export_command(url, pgn)
+        click.echo(f"{Fore.GREEN}Export successful!{Fore.RESET}")
+    except Exception as e:
+        click.echo(f"{Fore.RED}Export failed: {str(e)}{Fore.RESET}")
 
 
 if __name__ == "__main__":
-    main()
+    main(prog_name="livechesscloud")
