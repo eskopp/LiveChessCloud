@@ -16,8 +16,8 @@ init(autoreset=True)
 def main() -> None:
     pass
 
-@main.command()
-def help() -> None:
+@main.command(name="help")
+def help_command() -> None:
     help.help()
 
 @main.command()
