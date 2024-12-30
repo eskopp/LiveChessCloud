@@ -1,0 +1,33 @@
+name: Upload Backup to Nextcloud
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload to Nextcloud
+        id: upload
+        uses: eskopp/nextcloud-backup@main
+        with:
+          nextcloud_url: "aHR0cHM6Ly9jbG91ZC5lcmlrLXNrb3BwLmRlL3JlbW90ZS5waHAvZGF2L2ZpbGVzL0VyaWsvU291cmNlQ29kZS9HaXRIdWIvTGl2ZUNoZXNzQ2xvdWQ="
+          username: "RXJpaw=="
+          password: ${{ secrets.NEXTCLOUD_PASSWORD }}
+          base64: "true"
+
+      - name: Display ZIP Name
+        run: |
+          echo "Generated ZIP Name: ${{ steps.upload.outputs.zip-name }}"
