@@ -40,7 +40,7 @@ setuptools.setup(
         "requests==2.32.3",
         "asyncio==3.4.3",
         "chess==1.6.1",
-        "pytest==6.2.4",
+        "pytest==8.3.4",
         "aiohttp==3.11.11",
     ],
     entry_points={
