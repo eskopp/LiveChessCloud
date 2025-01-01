@@ -39,7 +39,7 @@ setuptools.setup(
         "click==8.1.8",
         "requests==2.32.3",
         "asyncio==3.4.3",
-        "chess==1.6.1",
+        "chess==1.11.1",
         "pytest==8.3.4",
         "aiohttp==3.11.11",
     ],
