@@ -35,7 +35,7 @@ setuptools.setup(
     ],
     python_requires=">=3.10",
     install_requires=[
-        "colorama==0.4.4",
+        "colorama==0.4.6",
         "click==8.1.8",
         "requests==2.32.3",
         "asyncio==3.4.3",
