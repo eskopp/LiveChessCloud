@@ -39,9 +39,10 @@ setuptools.setup(
         "click==8.2.1",
         "requests==2.32.3",
         "asyncio==3.4.3",
-        "chess==1.11.2",
-        "pytest==8.3.4",
-        "aiohttp==3.11.18",
+        "chess==1.11.1",
+        "pytest==8.3.5",
+        "aiohttp==3.11.13",
+
     ],
     entry_points={
         'console_scripts': [
