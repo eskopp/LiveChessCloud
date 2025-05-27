@@ -41,7 +41,7 @@ setuptools.setup(
         "asyncio==3.4.3",
         "chess==1.11.1",
         "pytest==8.3.5",
-        "aiohttp==3.11.13",
+        "aiohttp==3.12.2",
 
     ],
     entry_points={
